@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:nnfl_project/screens/home_screen.dart';
 import 'package:nnfl_project/utils/colors.dart';
 
 class OnboardScreen extends StatelessWidget {
@@ -75,7 +76,10 @@ class OnboardScreen extends StatelessWidget {
                         padding: EdgeInsets.all(16),
                         color: persian_blue,
                         onPressed: () {
-                          Navigator.pushNamed(context, "/welcome_screen");
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => HomeScreen()));
                         },
                         textColor: white,
                         child: Row(
