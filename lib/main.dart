@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:nnfl_project/screens/onboard_screen.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(MyApp());
 }
 

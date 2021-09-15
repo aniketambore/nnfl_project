@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nnfl_project/screens/gallery_image.dart';
 import 'package:nnfl_project/utils/colors.dart';
 import 'package:nnfl_project/widgets/button_plain_with_icon.dart';
 
@@ -35,7 +36,12 @@ class HomeScreen extends StatelessWidget {
                   textColor: wood_smoke,
                   icon: Icons.image,
                   text: "From Gallery",
-                  callback: () {},
+                  callback: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => GalleryImage()));
+                  },
                 ),
               ],
             ),
