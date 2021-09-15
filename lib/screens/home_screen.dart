@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:nnfl_project/screens/gallery_image.dart';
+import 'package:nnfl_project/screens/camera_preview_screen.dart';
+import 'package:nnfl_project/screens/gallery_image_preview.dart';
 import 'package:nnfl_project/utils/colors.dart';
 import 'package:nnfl_project/widgets/button_plain_with_icon.dart';
 
@@ -26,7 +27,12 @@ class HomeScreen extends StatelessWidget {
                   textColor: wood_smoke,
                   icon: Icons.masks,
                   text: "Live camera",
-                  callback: () {},
+                  callback: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => CameraPreviewScreen()));
+                  },
                 ),
                 SizedBox(
                   height: 16,
@@ -40,7 +46,7 @@ class HomeScreen extends StatelessWidget {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => GalleryImage()));
+                            builder: (context) => GalleryImagePreview()));
                   },
                 ),
               ],

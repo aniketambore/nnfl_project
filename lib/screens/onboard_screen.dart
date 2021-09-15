@@ -8,7 +8,6 @@ class OnboardScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Material(
       child: Container(
-//        color: white,
         child: Column(
           children: <Widget>[
             Expanded(

@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:camera/camera.dart';
 import 'package:tflite/tflite.dart';
 
 class TensorFlowService {
@@ -19,5 +20,17 @@ class TensorFlowService {
       imageStd: 127.5,
     );
     return recognitions;
+  }
+
+  runModelOnFrame(CameraImage img) {
+    var run = Tflite.runModelOnFrame(
+      bytesList: img.planes.map((Plane plane) {
+        return plane.bytes;
+      }).toList(),
+      imageWidth: img.width,
+      imageHeight: img.height,
+      numResults: 2,
+    );
+    return run;
   }
 }

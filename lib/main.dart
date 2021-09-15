@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:nnfl_project/screens/onboard_screen.dart';
+import 'package:nnfl_project/utils/colors.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -13,8 +14,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-          primaryColor: Colors.cyan[400],
-          accentColor: Colors.deepOrange[200],
+          primaryColor: persian_blue,
+          accentColor: lightening_yellow,
           brightness: Brightness.dark),
       home: OnboardScreen(),
     );

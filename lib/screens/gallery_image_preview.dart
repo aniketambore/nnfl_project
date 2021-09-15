@@ -5,12 +5,12 @@ import 'package:nnfl_project/services/tensorflow_service.dart';
 import 'package:nnfl_project/utils/colors.dart';
 import 'dart:io';
 
-class GalleryImage extends StatefulWidget {
+class GalleryImagePreview extends StatefulWidget {
   @override
-  _GalleryImageState createState() => _GalleryImageState();
+  _GalleryImagePreviewState createState() => _GalleryImagePreviewState();
 }
 
-class _GalleryImageState extends State<GalleryImage> {
+class _GalleryImagePreviewState extends State<GalleryImagePreview> {
   final TensorFlowService _tensorFlowServices = TensorFlowService();
   File? _image;
   bool _isLoading = false;
@@ -83,26 +83,47 @@ class _GalleryImageState extends State<GalleryImage> {
                         ? Container(
                             child: Text(
                               "Select an Image to show preview.",
-                              style: TextStyle(fontSize: 20, color: foam),
+                              style: TextStyle(
+                                  fontSize: 20,
+                                  color: foam,
+                                  fontWeight: FontWeight.bold),
                             ),
                           )
-                        : Image.file(
-                            _image!,
-                            height: MediaQuery.of(context).size.height / 2 + 60,
-                            width: MediaQuery.of(context).size.width - 80,
-                          ),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    _recognitions != null
-                        ? Text(text,
-                            style: TextStyle(
+                        : Container(
+                            padding: EdgeInsets.all(20),
+                            margin: EdgeInsets.all(20),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(30),
+                              border: Border.all(
                                 color: text == "Without Mask"
                                     ? flamingo
                                     : carribean_green,
-                                fontSize: 20.0,
-                                fontWeight: FontWeight.bold))
-                        : Container()
+                                width: 10,
+                              ),
+                            ),
+                            child: Column(
+                              children: [
+                                Image.file(
+                                  _image!,
+                                  height:
+                                      MediaQuery.of(context).size.height / 2 +
+                                          60,
+                                  width: MediaQuery.of(context).size.width - 80,
+                                ),
+                                SizedBox(
+                                  height: 20,
+                                ),
+                                _recognitions != null
+                                    ? Text(text,
+                                        style: TextStyle(
+                                            color: text == "Without Mask"
+                                                ? flamingo
+                                                : carribean_green,
+                                            fontSize: 20.0,
+                                            fontWeight: FontWeight.bold))
+                                    : Container()
+                              ],
+                            )),
                   ],
                 ),
               ));
